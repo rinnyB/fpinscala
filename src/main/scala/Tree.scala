@@ -1,5 +1,7 @@
 package fpinscala.tree
 
+import Tree._
+
 sealed trait Tree[+A]
 
 case class Leaf[A](value: A) extends Tree[A]
@@ -43,22 +45,21 @@ object Tree {
     case Leaf(a) => f(a)
     case Stump => default
   }
+}
 
-  def main(args: Array[String]): Unit = {
-
-    val tree =
-      Branch (
-        Leaf(1),
+object Test extends App {
+  val tree =
+    Branch (
+      Leaf(1),
+      Branch(
         Branch(
-          Branch(
-            Leaf(-10), Branch(Stump, Leaf(1))),
+          Leaf(-10), Branch(Stump, Leaf(1))),
           Leaf(1)
-        )
       )
-    println(count(tree))
-    println(depth(tree, 0))
-    println(tree)
-    println(fold(tree)(e => e.toDouble)(_ + _)(0))
-    print(max(tree))
-  }
+  )
+  println(count(tree))
+  println(depth(tree, 0))
+  println(tree)
+  println(fold(tree)(e => e.toDouble)(_ + _)(0))
+  print(max(tree))
 }

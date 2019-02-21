@@ -152,7 +152,7 @@ object List {
 
 }
 
-object foo {
+object Test {
   def main(args: Array[String]): Unit = {
     val vx = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     val vz = List(1D, 2D, 3D, 4D, 5D, 6D, 7D, 8D, 9D, 10D)

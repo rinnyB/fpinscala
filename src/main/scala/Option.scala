@@ -60,7 +60,7 @@ object Option {
   }
 }
 
-object Cookie extends App {
+object Test extends App {
 
   def mean(xs: Seq[Double]): Option[Double] = {
     if (xs isEmpty) None
