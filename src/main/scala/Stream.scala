@@ -34,6 +34,7 @@ sealed trait Stream[+A] {
     def go(iter: Int, stream: Stream[A]): Stream[A] = stream match {
       case Cons(_, t) if iter > 0 => go(iter - 1, t())
       case Cons(_, _) if iter == 0 => stream
+      case Empty => stream
     }
     go(n, this)
   }
